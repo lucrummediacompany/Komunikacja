@@ -33,8 +33,8 @@ Coinbase CDP currently ships `CdpX402Client` without default spend controls. Thi
 Requirements: Node.js 20.19 or newer, a Coinbase Developer Platform account, and native USDC on Base.
 
 ```bash
-git clone https://github.com/lucrummediacompany/trading-zones-x402-sdk.git
-cd trading-zones-x402-sdk
+git clone https://github.com/lucrummediacompany/Komunikacja.git
+cd Komunikacja
 npm install
 cp .env.example .env
 ```

@@ -7,6 +7,8 @@ To repozytorium zawiera klienta i gotowe przykłady botów kupujących przez x40
 
 Cena jednego aktualnego pakietu wynosi 0,03 USDC. Pakiet zawiera decyzję, entry reference, SL, TP, zabezpieczenia płynnościowe LQ, wskaźniki, ważność oraz możliwe do zweryfikowania dowody wyników.
 
+Gotowe prompty dla ChatGPT, Claude, Gemini, DeepSeek i innych agentów znajdują się w pliku [PROMPTS.md](../PROMPTS.md).
+
 ## Start
 
 1. Zainstaluj Node.js 20.19 lub nowszy.
@@ -18,3 +20,5 @@ Cena jednego aktualnego pakietu wynosi 0,03 USDC. Pakiet zawiera decyzję, entry
 Bot `npm run bot:4h -- BTC` zapisuje wynik lokalnie i nie kupuje ponownie, dopóki poprzedni pakiet pozostaje ważny.
 
 SDK nie otwiera pozycji na giełdzie. Dostarcza agentowi kompletny pakiet decyzyjny; zasady egzekucji, limity ryzyka i ewentualne zlecenia pozostają po stronie użytkownika.
+
+Trading Zones nie udziela porad inwestycyjnych ani finansowych. Wyniki historyczne i symulowane nie gwarantują przyszłych rezultatów. Pełna treść: [DISCLAIMER.md](../DISCLAIMER.md).

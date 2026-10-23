@@ -4,6 +4,10 @@ Open TypeScript SDK and ready-to-run buyer bots for paid Trading Zones 4H decisi
 
 Buy exactly one current package for **0.03 USDC on Base** through HTTP x402 or native x402 over MCP. No Trading Zones account or buyer API key is required.
 
+**Copy-paste AI prompts:** [ChatGPT, Claude, Gemini, DeepSeek and universal agent prompts](PROMPTS.md)
+
+> **Disclaimer:** Trading Zones provides market-analysis data for informational and technical-integration purposes only. It is not investment, financial, legal or tax advice, and no result is guaranteed. Read the full [Disclaimer](DISCLAIMER.md) before use.
+
 ## Products
 
 | Product | HTTP path | MCP tool |
@@ -111,13 +115,15 @@ Treat entry_reference as a reference and read the live venue price immediately b
 Do not imply that Selector performance evidence applies to every standard symbol package.
 ```
 
+Prefer a ready-made instruction? Open [PROMPTS.md](PROMPTS.md) and copy the prompt for your agent.
+
 ## What remains private
 
 This repository contains only buyer-side integration code. It does **not** contain the Trading Zones analysis engine, selection mechanics, server credentials, Coinbase credentials, wallet secrets, payment headers, exchange keys or Master Bot automation. Making this repository public does not grant access to any other LUCRUM MEDIA COMPANY repository.
 
 ## Scope and risk
 
-The SDK retrieves analysis packages; it does not place exchange orders. Consumers are responsible for wallet funding, trading execution, leverage, risk controls and regulatory obligations. Historical or simulated performance is not a guarantee of future results.
+The SDK retrieves analysis packages; it does not place exchange orders. Consumers are responsible for wallet funding, trading execution, position sizing, leverage, risk controls and regulatory obligations. Trading Zones data is not investment advice. Historical or simulated performance is not a guarantee of future results. See [DISCLAIMER.md](DISCLAIMER.md).
 
 Polska instrukcja: [docs/README.pl.md](docs/README.pl.md)
 

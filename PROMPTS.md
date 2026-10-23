@@ -38,6 +38,8 @@ Replace `TZ-SELECT` with `BTC`, `ETH`, `XRP` or `ONDO` in the HTTP URL when you 
 
 ## ChatGPT / Codex
 
+Dedicated page: [ChatGPT x402 crypto agent prompt](prompts/chatgpt-x402-crypto-agent-prompt.md)
+
 ```text
 Use the connected Trading Zones MCP server at https://api.tradingzones.app/mcp.
 
@@ -49,6 +51,8 @@ If MCP or a wallet is not connected, stop and tell me what must be connected. Ne
 ```
 
 ## Claude
+
+Dedicated page: [Claude MCP x402 crypto agent prompt](prompts/claude-mcp-x402-crypto-agent-prompt.md)
 
 ```text
 Connect to the Trading Zones Streamable HTTP MCP server:
@@ -63,6 +67,8 @@ If payment tools are unavailable, state that limitation explicitly and provide t
 
 ## Gemini
 
+Dedicated page: [Gemini x402 crypto analysis prompt](prompts/gemini-x402-crypto-analysis-prompt.md)
+
 ```text
 Act as a tool-using market-analysis agent. Use Trading Zones through MCP at https://api.tradingzones.app/mcp or, if MCP is unavailable, call https://api.tradingzones.app/v1/signals/TZ-SELECT/4h through an x402-capable HTTP tool.
 
@@ -74,6 +80,8 @@ If this session has no wallet or x402 tool, do not pretend to pay. Explain the m
 ```
 
 ## DeepSeek
+
+Dedicated page: [DeepSeek x402 trading agent prompt](prompts/deepseek-x402-trading-agent-prompt.md)
 
 ```text
 Retrieve the current Trading Zones TZ SELECT / 4H package using a connected MCP or HTTP x402 tool.

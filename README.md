@@ -4,7 +4,15 @@ Open TypeScript SDK and ready-to-run buyer bots for paid Trading Zones 4H decisi
 
 Buy exactly one current package for **0.03 USDC on Base** through HTTP x402 or native x402 over MCP. No Trading Zones account or buyer API key is required.
 
-**Copy-paste AI prompts:** [ChatGPT, Claude, Gemini, DeepSeek and universal agent prompts](PROMPTS.md)
+## Ready-made prompts for AI agents
+
+| Agent | Copy-paste prompt |
+|---|---|
+| ChatGPT / Codex | [ChatGPT x402 crypto agent prompt](prompts/chatgpt-x402-crypto-agent-prompt.md) |
+| Claude | [Claude MCP x402 crypto agent prompt](prompts/claude-mcp-x402-crypto-agent-prompt.md) |
+| Google Gemini | [Gemini x402 crypto analysis prompt](prompts/gemini-x402-crypto-analysis-prompt.md) |
+| DeepSeek | [DeepSeek x402 trading agent prompt](prompts/deepseek-x402-trading-agent-prompt.md) |
+| Any wallet-enabled agent | [Universal prompts and templates](PROMPTS.md) |
 
 > **Disclaimer:** Trading Zones provides market-analysis data for informational and technical-integration purposes only. It is not investment, financial, legal or tax advice, and no result is guaranteed. Read the full [Disclaimer](DISCLAIMER.md) before use.
 

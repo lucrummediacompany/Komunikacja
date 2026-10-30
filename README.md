@@ -104,7 +104,11 @@ const { paidFetch } = createCdpPaidFetch({ dailyCapAtomic: 300_000n });
 const tradingZones = new TradingZonesClient({ fetch: paidFetch });
 const setup = await tradingZones.getSetup("BTC");
 
-console.log(setup.decision, setup.levels.entry_reference, setup.levels.stop_loss, setup.levels.take_profit);
+if (setup.tradable) {
+  console.log(setup.decision, setup.levels.entry_reference, setup.levels.stop_loss, setup.levels.take_profit);
+} else {
+  console.log("NO_TRADE", setup.reason_code);
+}
 ```
 
 ## Connect it to an agent
@@ -146,3 +150,4 @@ Polska instrukcja: [docs/README.pl.md](docs/README.pl.md)
 ## License
 
 MIT. The SDK code is open; access to Trading Zones decision packages remains metered by the public x402 endpoints.
+

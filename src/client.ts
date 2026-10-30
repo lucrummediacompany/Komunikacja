@@ -60,11 +60,36 @@ function assertDecisionPackage(value: unknown): asserts value is DecisionPackage
   if (!value || typeof value !== "object") {
     throw new TypeError("Trading Zones returned a non-object response.");
   }
-  const candidate = value as Partial<DecisionPackage>;
-  for (const key of ["package_id", "symbol", "decision", "valid_until", "levels", "indicators"] as const) {
-    if (candidate[key] === undefined || candidate[key] === null) {
+  const candidate = value as Record<string, unknown>;
+  for (const key of ["package_id", "symbol", "decision", "valid_until"] as const) {
+    if (typeof candidate[key] !== "string" || candidate[key] === "") {
       throw new TypeError(`Trading Zones response is missing ${key}.`);
     }
+  }
+  if (candidate.schema_version !== "1.2") {
+    throw new TypeError("Unsupported Trading Zones response schema; expected 1.2.");
+  }
+  assertProduct(candidate.symbol as string);
+  const expiresAt = Date.parse(candidate.valid_until as string);
+  if (!Number.isFinite(expiresAt) || expiresAt <= Date.now()) {
+    throw new TypeError("Trading Zones response is expired or has invalid valid_until.");
+  }
+  for (const key of ["levels", "indicators", "entry"] as const) {
+    if (candidate[key] === undefined || (candidate[key] !== null &&
+        (typeof candidate[key] !== "object" || Array.isArray(candidate[key])))) {
+      throw new TypeError(`Trading Zones response has invalid ${key}.`);
+    }
+  }
+  if (candidate.action === "NO_TRADE" && candidate.tradable === false && candidate.decision === "NEUTRAL") {
+    return;
+  }
+  const levels = candidate.levels as Record<string, unknown> | null;
+  if (candidate.action !== "TRADE" || candidate.tradable !== true ||
+      !["LONG", "SHORT"].includes(candidate.decision as string) || candidate.symbol === "TZ-SELECT" ||
+      !levels || !candidate.indicators || !candidate.entry ||
+      typeof levels.stop_loss !== "number" || !Number.isFinite(levels.stop_loss) ||
+      typeof levels.take_profit !== "number" || !Number.isFinite(levels.take_profit)) {
+    throw new TypeError("Trading Zones response has an inconsistent execution decision.");
   }
 }
 
@@ -77,3 +102,4 @@ async function parseBody(response: Response): Promise<unknown> {
     return text;
   }
 }
+

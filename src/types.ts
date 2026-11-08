@@ -32,7 +32,7 @@ export interface PerformanceEvidence {
 }
 
 interface DecisionPackageBase {
-  schema_version: "1.2";
+  schema_version: "1.2" | "1.3" | "1.4";
   package_id: string;
   symbol: Product;
   interval: "4h";
@@ -42,9 +42,13 @@ interface DecisionPackageBase {
   risk_reward_status: "ELIGIBLE" | "REJECTED" | "NOT_APPLICABLE";
   signal_id: string | null;
   revision: number | string | null;
-  confidence_score: number | null;
+  /** Setup strength on a 0–100 scale, available in schema 1.4. */
+  setup_strength_score?: number | null;
+  /** @deprecated Legacy score from schema 1.2 or 1.3. */
+  confidence_score?: number | null;
   confidence_band: string | null;
-  trade_probability_pct: number | null;
+  /** @deprecated Legacy score alias; does not estimate the chance of winning. */
+  trade_probability_pct?: number | null;
   candle_closed_at: string;
   generated_at: string;
   valid_until: string;

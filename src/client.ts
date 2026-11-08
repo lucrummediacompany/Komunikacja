@@ -66,8 +66,8 @@ function assertDecisionPackage(value: unknown): asserts value is DecisionPackage
       throw new TypeError(`Trading Zones response is missing ${key}.`);
     }
   }
-  if (candidate.schema_version !== "1.2") {
-    throw new TypeError("Unsupported Trading Zones response schema; expected 1.2.");
+  if (!["1.2", "1.3", "1.4"].some((version) => version === candidate.schema_version)) {
+    throw new TypeError("Unsupported Trading Zones response schema; expected 1.2, 1.3 or 1.4.");
   }
   assertProduct(candidate.symbol as string);
   const expiresAt = Date.parse(candidate.valid_until as string);

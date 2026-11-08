@@ -32,6 +32,16 @@ test("builds the canonical product URL and returns JSON", async () => {
   assert.equal(result.package_id, "pkg-1");
 });
 
+test("accepts current and previous schemas after payment", async () => {
+  for (const schema_version of ["1.3", "1.4"]) {
+    const setup = { ...fixture, schema_version, setup_strength_score: 64.28 };
+    const client = new TradingZonesClient({
+      fetch: async () => new Response(JSON.stringify(setup), {status: 200}),
+    });
+    assert.equal((await client.getSetup("BTC")).schema_version, schema_version);
+  }
+});
+
 test("accepts a paid completed selector NO_TRADE with null execution fields", async () => {
   const client = new TradingZonesClient({fetch: async () => new Response(JSON.stringify({
     ...fixture, symbol: "TZ-SELECT", decision: "NEUTRAL", direction: "NEUTRAL",

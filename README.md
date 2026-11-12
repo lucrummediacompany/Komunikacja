@@ -40,6 +40,18 @@ Each paid response contains the direction, entry reference, stop loss, take prof
 
 Coinbase CDP currently ships `CdpX402Client` without default spend controls. This repository enables explicit limits for autonomous use.
 
+## Windows application and free first step
+
+For a ready-to-run local panel on **Windows 64-bit**, download [TradingZones-BOT-v4.2.exe](https://github.com/lucrummediacompany/Komunikacja/blob/main/TradingZones-BOT-v4.2.exe) and choose **Download raw file**. The EXE includes its runtime; Python and Node.js are not needed for this option. Paid reports require Chrome, a supported wallet and native USDC on Base. The optional OKX module is configured separately and requires explicit order confirmation. The desktop source ZIP carries its own license; the MIT SDK license below applies to this TypeScript SDK.
+
+Agents can start without a wallet:
+
+- [Current free TZ SELECT analysis](https://api.tradingzones.app/v1/promo/TZ-SELECT/4h), while the promotion is active; the service publishes the promotion deadline in its guide.
+- [Check purchase readiness for BTC](https://api.tradingzones.app/v1/purchase/readiness?symbol=BTC) — substitute ETH, XRP, ONDO or TZ-SELECT. This free check reports availability, price and the next step; it never authorizes a payment.
+- [Machine purchase guide](https://api.tradingzones.app/purchase-guide.json), including a capped one-purchase example and bounded refresh retry instructions.
+
+Use the free package if it satisfies the task. Buy a particular market when that independent analysis is needed. An MCP connection alone does not provide a funded wallet or spending permission: obtain a one-package budget from the user, keep wallet secrets in the buyer's own environment, and reuse delivered data until `valid_until`. After a signed request times out, reconcile with the wallet before issuing a new authorization.
+
 ## Quick start
 
 Requirements: Node.js 20.19 or newer, a Coinbase Developer Platform account, and native USDC on Base.
